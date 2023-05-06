@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - APICaller
 final class APICaller {
     
     static let shared = APICaller()
@@ -14,7 +15,7 @@ final class APICaller {
     private init() {}
     
     struct Constants {
-        static let urlNews = URL(string: "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=a12c4539f10a4cc18b688217e9c01999")
+        static let urlNews = URL(string: "https://newsapi.org/v2/everything?domains=wsj.com&apiKey=a12c4539f10a4cc18b688217e9c01999")
     }
     
     public func getNews(completion: @escaping (Result<[Article], Error>) -> Void) {
@@ -35,21 +36,4 @@ final class APICaller {
         }
         task.resume()
     }
-}
-
-struct APIResponse: Codable {
-    let articles: [Article]
-}
-
-struct Article: Codable {
-    let source: Source
-    let title: String
-    let description: String?
-    let url: String?
-    let urlToImage: String?
-    let publishedAt: String
-}
-
-struct Source: Codable {
-    let name: String
 }

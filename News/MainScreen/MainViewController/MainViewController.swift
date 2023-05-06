@@ -27,13 +27,12 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         mainConfigure()
-        getNews()
+        setNews()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
-        
     }
     
     // MARK: - Methods
@@ -45,7 +44,7 @@ class MainViewController: UIViewController {
         tableView.dataSource = self
     }
     
-    private func getNews() {
+    private func setNews() {
         APICaller.shared.getNews { [weak self] result in
             switch result {
             case .success(let articles):
@@ -80,7 +79,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 180
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
