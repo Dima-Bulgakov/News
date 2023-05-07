@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - APICaller
+// MARK: - APICaller class
 final class APICaller {
     
     static let shared = APICaller()
@@ -36,4 +36,16 @@ final class APICaller {
         }
         task.resume()
     }
+}
+
+// MARK: - Structs
+struct APIResponse: Codable {
+    let articles: [Article]
+}
+
+struct Article: Codable {
+    let title: String
+    let description: String?
+    let url: String?
+    let urlToImage: String?
 }
