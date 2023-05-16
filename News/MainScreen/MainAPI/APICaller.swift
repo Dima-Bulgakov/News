@@ -15,7 +15,7 @@ final class APICaller {
     private init() {}
     
     struct Constants {
-        static let urlNews = URL(string: "https://newsapi.org/v2/everything?domains=wsj.com&apiKey=a12c4539f10a4cc18b688217e9c01999")
+        static let urlNews = URL(string: "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=a12c4539f10a4cc18b688217e9c01999")
     }
     
     public func getNews(completion: @escaping (Result<[Article], Error>) -> Void) {
